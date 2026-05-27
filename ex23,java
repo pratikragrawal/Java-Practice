@@ -1,0 +1,43 @@
+public class ex23 {
+    public static void main(String[] args) {
+        if (args.length != 3) {
+            System.out.println("Usage: java ex21 <num1> <operator> <num2>");
+            return;
+        }
+        
+        int num1 = Integer.parseInt(args[0]);
+        String operator = args[1];
+        int num2 = Integer.parseInt(args[2]);
+        int result = 0;
+        String operation = "";
+        
+        switch (operator) {
+            case "+":
+                result = num1 + num2;
+                operation = "Sum";
+                break;
+            case "-":
+                result = num1 - num2;
+                operation = "Difference";
+                break;
+            case "*":
+                result = num1 * num2;
+                operation = "Product";
+                break;
+            case "/":
+                if (num2 != 0) {
+                    result = num1 / num2;
+                    operation = "Quotient";
+                } else {
+                    System.out.println("Error: Division by zero is not allowed.");
+                    return;
+                }
+                break;
+            default:
+                System.out.println("Error: Unsupported operator. Use +, -, * or /");
+                return;
+        }
+        
+        System.out.println(operation + " of " + num1 + " and " + num2 + " is " + result);
+    }
+}
